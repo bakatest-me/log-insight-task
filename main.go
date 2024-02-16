@@ -11,7 +11,7 @@ func main() {
 	prof := util.NewProfiling(filename)
 	defer prof.Close()
 
-	is := insight.NewLogService()
+	is := insight.NewLogV2Service()
 	resp, err := is.Run("logfile.txt")
 	if err != nil {
 		log.Println(err)

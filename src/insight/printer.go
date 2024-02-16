@@ -56,3 +56,17 @@ func sortTopRank(m map[string]int) (ss []domain.KV[string, int]) {
 
 	return ss
 }
+
+func mergeMapInt(m1, m2 map[int]int) map[int]int {
+	for k, v := range m2 {
+		m1[k] += v
+	}
+	return m1
+}
+
+func mergeMap(m1, m2 map[string]int) map[string]int {
+	for k, v := range m2 {
+		m1[k] += v
+	}
+	return m1
+}
