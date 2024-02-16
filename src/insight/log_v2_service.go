@@ -2,7 +2,6 @@ package insight
 
 import (
 	"bufio"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"log-insign-task/domain"
@@ -11,6 +10,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 var location, _ = time.LoadLocation("Asia/Bangkok")
@@ -42,6 +43,7 @@ func (m *logV2Service) Run(pathFile string) (*domain.SumaryLog, error) {
 	}
 
 	scanner := bufio.NewScanner(file)
+	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 	for scanner.Scan() {
 		line := scanner.Bytes()
 		var logLine domain.Log
