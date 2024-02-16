@@ -13,6 +13,8 @@ import (
 	"time"
 )
 
+var location, _ = time.LoadLocation("Asia/Bangkok")
+
 type logV2Service struct{}
 
 func NewLogV2Service() *logV2Service {
@@ -148,11 +150,6 @@ func (m *logV2Service) updateFrequencies(summary *domain.SumaryLog, logLine *dom
 
 func (m *logV2Service) extractHour(ts string, tz string) (int, error) {
 	t, err := time.Parse(time.RFC3339, ts)
-	if err != nil {
-		return 0, err
-	}
-
-	location, err := time.LoadLocation(tz)
 	if err != nil {
 		return 0, err
 	}
