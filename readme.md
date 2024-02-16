@@ -32,3 +32,18 @@ Or
 ```
     make dev
 ```
+
+### test performance on macbook m1
+
+version 1 _feature/log-insight_
+
+- exec time: 191.739417ms
+
+version 2 _feature/v2-with-concurrency_
+
+- faster then v1 86.41%
+- exec time: 26.060583ms
+
+- fix loadtime zone to global
+- decode json with https://github.com/json-iterator/go
+- add go concurrency
